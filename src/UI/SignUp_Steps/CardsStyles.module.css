@@ -1,0 +1,47 @@
+.cardTitle {
+  margin: 50px 0 15px 0;
+  text-align: center;
+}
+
+.subTitle {
+  font-family: "Rubik";
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  color: #5a6171;
+  font-size: 14px;
+  margin-bottom: 40px;
+  text-align: center;
+  text-align: center;
+}
+
+.checkbox {
+  color: #5a6171;
+  font-size: 12px;
+  margin: 0 0 30px;
+  font-family: "Rubik";
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.logo {
+  min-height: 100px;
+  min-width: 50%;
+  margin-bottom: 40px;
+}
+
+.loginHelper_btn {
+  font-family: "Rubik";
+  font-weight: 400;
+  font-size: 14px;
+  color: #4c84ff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 1px 60px 1px;
+  text-align: center;
+}
+
+.errCard {
+  width: 100%;
+  margin-bottom: 24px;
+}

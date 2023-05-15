@@ -1,0 +1,8 @@
+.subjectInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.switch {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+}
+
+main {
+  width: 100%;
+  padding: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #31394e;
+  color: #fff;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: all 0.5s;
+  height: 100vh;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+.topSection {
+  box-sizing: inherit;
+}
+
+.burgerIcon {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.sidebarHeader {
+  display: flex;
+  padding: 25px 15px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: inherit;
+}
+
+.sidebarHeader_closed {
+  justify-content: center;
+}
+
+.bottomSection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 10px 25px;
+  margin-top: 15px;
+  box-sizing: inherit;
+}
+
+.bottomSection_opened {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+.bottomSection_closed {
+  justify-content: center;
+}
+
+.linksSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.linksSection_closed {
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 15px;
+  color: #ffffff;
+  margin: 2px 0;
+  white-space: nowrap;
+}
+.linkText {
+  font-family: "Rubik";
+  font-size: 14px;
+  font-weight: 400;
+}
+.link:hover {
+  background: #70788c;
+  transition: background-color 1s;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.closedActiveLink {
+  background: #70788c;
+  border-radius: 6px;
+}
+
+.openedActiveLink {
+  background: #70788c;
+}
+
+.bottomIcon {
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 15px;
+  cursor: pointer;
+}

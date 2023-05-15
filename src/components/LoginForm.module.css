@@ -1,0 +1,43 @@
+.loginHelpers {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.loginHelper_btn {
+  font-family: "Rubik";
+  font-weight: 400;
+  font-size: 14px;
+  color: #4c84ff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 1px 60px 1px;
+}
+
+@media (max-width: 767px) {
+  .loginHelpers {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 25px;
+  }
+
+  .loginHelper_btn {
+    margin: 0 0 30px 0;
+  }
+}
+
+.loginHelper_btn:active {
+  opacity: 0.5;
+  scale: 1.2;
+}
+
+.cardTitle {
+  margin: 50px 0 35px;
+}
+.errorCard {
+  width: 100%;
+  margin-bottom: 24px;
+}

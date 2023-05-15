@@ -1,0 +1,13 @@
+.title {
+  margin: 10px 0;
+}
+.searchBar {
+  width: 45%;
+  margin: 10px 0;
+}
+
+@media (max-width: 767px) {
+  .searchBar {
+    width: 100%;
+  }
+}

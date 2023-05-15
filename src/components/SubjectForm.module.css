@@ -1,0 +1,86 @@
+.instructors {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.instructorItem,
+.addInstructor {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  border-radius: 12px;
+  transition: all 0.5s;
+  min-height: 15px;
+  min-width: 50px;
+  transition: all 0.5;
+}
+
+.subjectForm {
+  width: 50%;
+}
+
+.instructorError {
+  width: 50%;
+  margin: 10px 0;
+}
+
+@media (max-width: 767px) {
+  .subjectForm {
+    width: 90%;
+  }
+  .instructorError {
+    width: 90%;
+  }
+}
+.instructorItem {
+  background-color: #e2e5e8;
+  justify-content: space-between;
+}
+
+.addInstructor {
+  justify-content: center;
+  background-color: #b2b6bd;
+  cursor: pointer;
+  gap: 10px;
+  background-color: #485066;
+}
+.addInstructor:hover {
+  background-color: #172037;
+}
+.icon {
+  display: none;
+  cursor: pointer;
+  font-size: 22px;
+  transition: color 0.5s;
+}
+
+.plusIcon {
+  font-size: 22px;
+  color: #ffffff;
+}
+.icon:hover {
+  color: crimson;
+}
+
+.instructorName {
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 500;
+}
+
+.addInstructorText {
+  font-size: 16px;
+  font-family: "Rubik";
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.instructorItem:hover {
+  background-color: #bec2c8;
+  min-width: 180px;
+}
+
+.instructorItem:hover > .icon {
+  display: block;
+}

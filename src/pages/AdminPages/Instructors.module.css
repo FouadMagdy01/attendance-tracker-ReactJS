@@ -1,0 +1,38 @@
+.facultyInstructors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  transition: all 0.5s ease-in-out;
+}
+
+.instructorCard,
+.addInstructorCard {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px 15px;
+  width: 200px;
+}
+
+.addInstructorCard {
+  cursor: pointer;
+  background-color: #4c5b88;
+  transition: background-color 0.5s;
+}
+.addInstructorCard:hover {
+  background-color: #25335f;
+}
+.addInstructorIcon {
+  font-size: 60px;
+  color: #ffffff;
+}
+
+.cardText {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Rubik";
+  color: #ffffff;
+  text-align: center;
+}

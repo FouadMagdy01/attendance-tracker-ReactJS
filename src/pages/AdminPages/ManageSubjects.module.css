@@ -1,0 +1,61 @@
+.searchBar {
+  width: 45%;
+  margin: 10px 0;
+}
+
+.filterSection {
+  display: flex;
+}
+.pending {
+  color: #f0ad4e;
+}
+.accepted {
+  color: #5cb85c;
+}
+
+.addSubject {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #777e91;
+  padding: 50px 10px;
+  width: 30%;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.addSubject:hover {
+  background-color: #202539;
+}
+.plusIcon {
+  color: #ffffff;
+  font-size: 40px;
+  margin-bottom: 6px;
+}
+
+.addSubjectText {
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "Rubik";
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .searchBar {
+    width: 100%;
+  }
+  .addSubject {
+    width: 50%;
+  }
+}
+
+.addSubjectForm {
+  width: 100%;
+}
+
+.instructorErr {
+  width: 100%;
+  margin: 120px 0;
+}

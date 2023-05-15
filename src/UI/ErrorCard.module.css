@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  background-color: #f4f6fc;
+  align-items: center;
+  font-family: "Rubik";
+  padding: 15px 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.errorText {
+  color: #fd5461;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Rubik";
+  margin: 0;
+  word-break: normal;
+  line-height: 18px;
+  margin: 0 8px;
+}
+
+.warningTriangle {
+  min-width: 20px;
+  min-height: 20px;
+}
