@@ -1,5 +1,5 @@
-import LogoWithText from "../components/LogoWithText";
-import SignUpForm from "../components/SignUpForm";
+import LogoWithText from "../../components/LogoWithText/LogoWithText";
+import SignUpForm from "../../components/Forms/SignUpForm";
 import classes from "./SignUp.module.css";
 const SignUpPage = () => {
   return (

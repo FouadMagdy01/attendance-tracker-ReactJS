@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import AddSubjectForm from "../../../components/SubjectForm";
+import AddSubjectForm from "../../../components/Forms/SubjectForm";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import api from "../../../services/api";
 import { message } from "antd";

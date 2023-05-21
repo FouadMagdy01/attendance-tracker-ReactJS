@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "../pages/AdminPages/Home";
-import ManageSubjects from "../pages/AdminPages/ManageSubjects";
-import ManageStudents from "../pages/AdminPages/ManageStudents";
-import Instructors from "../pages/AdminPages/Instructors";
-import FacultyInfo from "../pages/AdminPages/FacultyInfo";
+import Home from "../pages/AdminPages/Home/Home";
+import ManageSubjects from "../pages/AdminPages/ManageSubjects/ManageSubjects";
+import ManageStudents from "../pages/AdminPages/ManageStudents/ManageStudents";
+import Instructors from "../pages/AdminPages/Instructors/Instructors";
+import FacultyInfo from "../pages/AdminPages/FacultyInfo/FacultyInfo";
 import AdminSideBar from "../layout/AdminSideBar";
 import SubjectDetails from "../pages/AdminPages/SubjectDetails/SubjectDetails";
 

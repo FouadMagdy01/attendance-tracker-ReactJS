@@ -1,12 +1,12 @@
 import { Button, Divider, Modal } from "antd";
 import { useState, useEffect, useRef } from "react";
 import classes from "./Instructors.module.css";
-import Card from "../../components/Card";
+import Card from "../../../components/Cards/Card";
 import { HiUserAdd } from "react-icons/hi";
 import { BsFilePersonFill } from "react-icons/bs";
-import InstructorAssignTable from "../../UI/InstructorAssignTable";
-import { useAppSelector } from "../../hooks/reduxHooks";
-import api from "../../services/api";
+import InstructorAssignTable from "../../../UI/InstructorAssignTable";
+import { useAppSelector } from "../../../hooks/reduxHooks";
+import api from "../../../services/api";
 const Instructors = () => {
   const randomColors = [
     "#DB54FD",

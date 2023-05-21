@@ -1,8 +1,8 @@
 import React from "react";
-import AuthCard from "../../components/AuthCard";
+import AuthCard from "../../components/Cards/AuthCard";
 import classes from "./CardsStyles.module.css";
 import { ReactComponent as SuccessTick } from "../../assets/svg/SuccessTick.svg";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { NavLink } from "react-router-dom";
 
 const SignupSuccess = () => {

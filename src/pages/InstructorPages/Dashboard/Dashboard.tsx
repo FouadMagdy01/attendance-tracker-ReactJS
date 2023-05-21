@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../../hooks/reduxHooks";
-import api from "../../services/api";
+import { useAppSelector } from "../../../hooks/reduxHooks";
+import api from "../../../services/api";
 import { Button, Result } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import LoadingOverlay from "../../UI/LoadingOverlay";
-import SectionTitle from "../../components/SectionTitle";
-import Card from "../../components/Card";
+import LoadingOverlay from "../../../UI/LoadingOverlay";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import Card from "../../../components/Cards/Card";
 import classes from "./Dashboard.module.css";
-import { ReactComponent as FacultySvg } from "../../assets/svg/faculty.svg";
-import { ReactComponent as SubjectSvg } from "../../assets/svg/Subject.svg";
-import LabelCaption from "../../components/LabelCaption";
+import { ReactComponent as FacultySvg } from "../../../assets/svg/faculty.svg";
+import { ReactComponent as SubjectSvg } from "../../../assets/svg/Subject.svg";
+import LabelCaption from "../../../components/LabelCaption/LabelCaption";
 
 const Dashboard = () => {
   const auth = useAppSelector((state) => state.auth);

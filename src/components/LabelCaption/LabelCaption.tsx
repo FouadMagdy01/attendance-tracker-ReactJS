@@ -1,5 +1,5 @@
 import { Typography } from "antd";
-
+import classes from "./LabelCaption.module.css";
 interface LabelCaptionProps {
   label?: any;
   caption?: any;
@@ -18,9 +18,16 @@ const LabelCaption: React.FC<LabelCaptionProps> = ({
   captionProps,
 }) => {
   return (
-    <Typography.Text {...labelProps} className={labelClassName}>
+    <Typography.Text
+      {...labelProps}
+      className={`${classes.label} ${labelClassName}`}
+    >
       {label}:{" "}
-      <Typography.Text strong className={captionClassName} {...captionProps}>
+      <Typography.Text
+        strong
+        className={`${classes.caption} ${captionClassName}`}
+        {...captionProps}
+      >
         {caption}
       </Typography.Text>
     </Typography.Text>

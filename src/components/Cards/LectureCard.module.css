@@ -1,0 +1,44 @@
+.upcomingCard,
+.finishedCard {
+  display: flex;
+  width: 400px;
+  align-items: center;
+  padding: 15px 10px;
+  transition: all 0.5s;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.upcomingCard {
+  background-color: #eafce9;
+}
+
+.upcomingCard:hover {
+  background-color: #bdd0bc;
+}
+.finishedCard:hover {
+  background-color: #ebdfdf;
+}
+.finishedCard {
+  background-color: #f2f2f2;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+}
+
+.lectureDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.detailsItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.detailsIcon {
+  font-size: 18px;
+}

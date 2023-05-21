@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./ErrorCard.module.css";
-import { ReactComponent as WarningTriangle } from "../assets/svg/warningTriangle.svg";
+import { ReactComponent as WarningTriangle } from "../../assets/svg/warningTriangle.svg";
 interface CardProps {
   className?: any;
   defaultProps?: any;

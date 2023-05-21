@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import Input from "./Input";
+import Button from "../Buttons/Button";
+import Input from "../Input/Input";
 import classes from "./LoginForm.module.css";
-import SectionTitle from "./SectionTitle";
-import ErrorCard from "../UI/ErrorCard";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import ErrorCard from "../Cards/ErrorCard";
 import { Link } from "react-router-dom";
-import AuthCard from "./AuthCard";
+import AuthCard from "../Cards/AuthCard";
 import { Button as CT, IconButton, InputAdornment } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { formStyles } from "../constants/formStyles";
-import Dropdown from "./Dropdown";
-import { SignInData } from "../interfaces/signInData";
+import { formStyles } from "../../constants/formStyles";
+import Dropdown from "../Input/Dropdown";
+import { SignInData } from "../../interfaces/signInData";
 interface LoginCardProps {
   onLogin?: Function;
   isLoading?: Boolean;

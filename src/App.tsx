@@ -9,7 +9,6 @@ import InstructorsNavigator from "./navigation/Instructor";
 function App() {
   const [messageApi, contextHolder] = message.useMessage();
   const auth = useAppSelector((state) => state.auth);
-  console.log(auth);
   let isFirst = true;
   const dispatch = useAppDispatch();
   const messageCtx = useAppSelector((state) => state.message);

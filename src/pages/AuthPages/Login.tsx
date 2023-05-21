@@ -1,11 +1,11 @@
 import classes from "./Login.module.css";
 import React, { useState } from "react";
-import LoginForm from "../components/LoginForm";
-import LogoWithText from "../components/LogoWithText";
-import api from "../services/api";
-import { signIn } from "../store/authSlice/reducers/signIn";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
-import { SignInData } from "../interfaces/signInData";
+import LoginForm from "../../components/Forms/LoginForm";
+import LogoWithText from "../../components/LogoWithText/LogoWithText";
+import api from "../../services/api";
+import { signIn } from "../../store/authSlice/reducers/signIn";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { SignInData } from "../../interfaces/signInData";
 import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const auth = useAppSelector((state) => state.auth);

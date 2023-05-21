@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "../pages/Login";
-import SignUpPage from "../pages/SignUp";
+import LoginPage from "../pages/AuthPages/Login";
+import SignUpPage from "../pages/AuthPages/SignUp";
 const AuthNavigator = () => {
   return (
     <Routes>

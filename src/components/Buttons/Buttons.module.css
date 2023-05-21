@@ -1,0 +1,54 @@
+.excelBtn,
+.calculateBtn {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+  gap: 15px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.calculateBtn {
+  background-color: #ced4da;
+}
+.calculateBtn:hover {
+  background-color: #a3aeba;
+}
+
+.excelBtn {
+  background-color: #149052;
+}
+
+.excelBtn:hover {
+  background-color: #017239;
+}
+
+.whiteIcon,
+.blackIcon {
+  font-size: 20px;
+}
+
+.whiteIcon {
+  color: #ffffff;
+}
+
+.blackIcon {
+  color: #000000;
+}
+.whiteText,
+.blackText {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.whiteText {
+  color: #ffffff;
+}
+
+.blackText {
+  color: #000000;
+}

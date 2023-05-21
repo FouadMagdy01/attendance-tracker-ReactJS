@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import AuthCard from "../../components/AuthCard";
-import SectionTitle from "../../components/SectionTitle";
+import AuthCard from "../../components/Cards/AuthCard";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import classes from "./CardsStyles.module.css";
-import Button from "../../components/Button";
+import Button from "../../components/Buttons/Button";
 import { formStyles } from "../../constants/formStyles";
-import Input from "../../components/Input";
-import Dropdown from "../../components/Dropdown";
+import Input from "../../components/Input/Input";
+import Dropdown from "../../components/Input/Dropdown";
 import { faculties } from "../../constants/faculties";
 import { IconButton, InputAdornment } from "@mui/material";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-import ErrorCard from "../ErrorCard";
+import ErrorCard from "../../components/Cards/ErrorCard";
 
 interface Step_two_props {
   onSignUp?: Function;

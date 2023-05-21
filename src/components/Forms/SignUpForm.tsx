@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import Choose_Role from "../UI/SignUp_Steps/Choose_Role";
-import AdminSignup from "../UI/SignUp_Steps/Admin_Signup";
-import SignupSuccess from "../UI/SignUp_Steps/SignupSuccess";
-import InstructorSignup from "../UI/SignUp_Steps/Instructor_Signup";
-import api from "../services/api";
+import Choose_Role from "../../UI/SignUp_Steps/Choose_Role";
+import AdminSignup from "../../UI/SignUp_Steps/Admin_Signup";
+import SignupSuccess from "../../UI/SignUp_Steps/SignupSuccess";
+import InstructorSignup from "../../UI/SignUp_Steps/Instructor_Signup";
+import api from "../../services/api";
 
 interface SignUpFormProps {}
 

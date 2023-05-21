@@ -1,11 +1,11 @@
 import React, { FormEventHandler, useState } from "react";
 
-import AuthCard from "../../components/AuthCard";
-import Button from "../../components/Button";
-import SectionTitle from "../../components/SectionTitle";
+import AuthCard from "../../components/Cards/AuthCard";
+import Button from "../../components/Buttons/Button";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import classes from "./CardsStyles.module.css";
 import { formStyles } from "../../constants/formStyles";
-import Dropdown from "../../components/Dropdown";
+import Dropdown from "../../components/Input/Dropdown";
 
 interface ChooseRoleProps {
   role?: String;

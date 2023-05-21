@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import CustomTable from "../../components/CustomTable";
+import CustomTable from "../../../components/CustomTable/CustomTable";
 import { Link } from "react-router-dom";
 import { Divider } from "antd";
-import api from "../../services/api";
-import { useAppSelector } from "../../hooks/reduxHooks";
+import api from "../../../services/api";
+import { useAppSelector } from "../../../hooks/reduxHooks";
 
 const ManageStudents = () => {
   const columns = [

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import CustomTable from "../../components/CustomTable";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import CustomTable from "../../../components/CustomTable/CustomTable";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 import classes from "./ManageSubjects.module.css";
 import { Button, Input, Modal } from "antd";
-import Dropdown from "../../components/Dropdown";
-import Card from "../../components/Card";
-import api from "../../services/api";
-import AddSubjectForm from "../../components/SubjectForm";
-import { displayMessage } from "../../store/messageSlice/message";
+import Dropdown from "../../../components/Input/Dropdown";
+import Card from "../../../components/Cards/Card";
+import api from "../../../services/api";
+import AddSubjectForm from "../../../components/Forms/SubjectForm";
+import { displayMessage } from "../../../store/messageSlice/message";
 const ManageSubjects = () => {
   const [filters, setFilters] = useState({
     searchQuery: "",

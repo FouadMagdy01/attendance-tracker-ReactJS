@@ -5,19 +5,23 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import classes from "./LectureForm.module.css";
-import SectionTitle from "./SectionTitle";
-import Input from "./Input";
-import { formStyles } from "../constants/formStyles";
-import Dropdown from "./Dropdown";
-import Button from "./Button";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import Input from "../Input/Input";
+import { formStyles } from "../../constants/formStyles";
+import Dropdown from "../Input/Dropdown";
+import Button from "../Buttons/Button";
 
 interface LectureFormProps {
   defaultValues?: any;
   onsubmit?: any;
+  subjectId?: String;
+  loading?: Boolean;
 }
 const LectureForm: React.FC<LectureFormProps> = ({
   defaultValues,
   onsubmit,
+  subjectId,
+  loading,
 }) => {
   const lectureOptions = [
     {
@@ -49,21 +53,23 @@ const LectureForm: React.FC<LectureFormProps> = ({
       isValid: true,
     },
   });
+
+  const changeDateHandler = (value: DatePickerProps["value"]) => {
+    setLectureData((prev) => {
+      return {
+        ...prev,
+        date: {
+          value,
+          isValid: true,
+        },
+      };
+    });
+  };
+
   const changeInputHandler = (
     inputIdentifier: any,
-    event: DatePickerProps["value"] | React.ChangeEvent<HTMLInputElement> | any
+    event: React.ChangeEvent<HTMLInputElement> | any
   ) => {
-    if (dayjs.isDayjs(event)) {
-      return setLectureData((prev) => {
-        return {
-          ...prev,
-          date: {
-            value: event,
-            isValid: true,
-          },
-        };
-      });
-    }
     setLectureData((prev) => {
       return {
         ...prev,
@@ -79,7 +85,9 @@ const LectureForm: React.FC<LectureFormProps> = ({
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    const dateIsValid = dayjs.isDayjs(lectureData.date.value);
+    const dateIsValid =
+      dayjs.isDayjs(lectureData.date.value) &&
+      dayjs().diff(dayjs(lectureData.date.value)) < 0;
     const nameIsValid = lectureData.name.value.length > 3;
     const typeIsValid = lectureData.type.value.length != 0;
     const locationIsValid = lectureData.location.value.length > 3;
@@ -110,10 +118,30 @@ const LectureForm: React.FC<LectureFormProps> = ({
       type: lectureData.type.value,
       location: lectureData.location.value,
       date: lectureData.date.value,
+      subjectId: defaultValues ? defaultValues.subject : subjectId,
       lectureId: defaultValues ? defaultValues._id : undefined,
     };
-
     onsubmit && onsubmit(formData);
+    setLectureData((perv) => {
+      return {
+        name: {
+          value: "",
+          isValid: true,
+        },
+        location: {
+          value: "",
+          isValid: true,
+        },
+        date: {
+          value: null,
+          isValid: true,
+        },
+        type: {
+          value: "",
+          isValid: true,
+        },
+      };
+    });
   };
   return (
     <div>
@@ -131,7 +159,7 @@ const LectureForm: React.FC<LectureFormProps> = ({
             error: !lectureData.name.isValid,
             helperText: lectureData.name.isValid
               ? null
-              : "Please enter a name for the lecture",
+              : "lecture name should contain at least 4 characters",
           }}
           sxStyles={formStyles.input}
         />
@@ -143,7 +171,7 @@ const LectureForm: React.FC<LectureFormProps> = ({
             error: !lectureData.location.isValid,
             helperText: lectureData.name.isValid
               ? null
-              : "Please enter a location",
+              : "Please enter a valid location",
           }}
           sxStyles={formStyles.input}
         />
@@ -167,11 +195,12 @@ const LectureForm: React.FC<LectureFormProps> = ({
           format="YYYY-MM-DD HH:mm"
           showTime
           value={lectureData.date.value}
-          onChange={changeInputHandler.bind(this, "date")}
+          onChange={changeDateHandler}
         />
         <Button
           buttonConfigProps={{
             type: "submit",
+            loading,
           }}
           sxStyles={styles.saveButton}
           buttonLabel={defaultValues ? "Submit Changes" : "Create Lecture"}

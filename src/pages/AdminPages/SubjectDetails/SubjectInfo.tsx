@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import CustomTable from "../../../components/CustomTable";
+import CustomTable from "../../../components/CustomTable/CustomTable";
 import { Divider, Empty, Switch, Typography } from "antd";
-import LabelCaption from "../../../components/LabelCaption";
+import LabelCaption from "../../../components/LabelCaption/LabelCaption";
 import classes from "./SubjectDetails.module.css";
-import Button from "../../../components/Button";
+import Button from "../../../components/Buttons/Button";
 import ErrorOverlay from "../../../UI/ErrorOverloay";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { acceptStudent } from "../../../store/subjectsSlice/reducers/acceptStudent";

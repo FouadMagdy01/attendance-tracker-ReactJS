@@ -15,7 +15,7 @@ export const signIn = createAsyncThunk(
         email: signInData.email,
         password: signInData.password,
       });
-
+      console.log(response.data);
       const localTokenObject = {
         token: response.data.token,
         authType: signInData.authType,

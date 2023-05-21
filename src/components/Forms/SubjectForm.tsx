@@ -1,21 +1,21 @@
 import { Divider, Spin } from "antd";
-import Input from "./Input";
+import Input from "../Input/Input";
 import { SlTrash } from "react-icons/sl";
 import { FaPlus } from "react-icons/fa";
 import React, { useState } from "react";
-import Card from "./Card";
+import Card from "../Cards/Card";
 import { useEffect } from "react";
 import classes from "./SubjectForm.module.css";
-import { formStyles } from "../constants/formStyles";
-import Button from "./Button";
-import InstructorAssignTable from "../UI/InstructorAssignTable";
-import api from "../services/api";
-import { useAppSelector, useAppDispatch } from "../hooks/reduxHooks";
-import Dropdown from "./Dropdown";
-import { semesterOptions, yearsOptions } from "../constants/options";
+import { formStyles } from "../../constants/formStyles";
+import Button from "../Buttons/Button";
+import InstructorAssignTable from "../../UI/InstructorAssignTable";
+import api from "../../services/api";
+import { useAppSelector, useAppDispatch } from "../../hooks/reduxHooks";
+import Dropdown from "../Input/Dropdown";
+import { semesterOptions, yearsOptions } from "../../constants/options";
 import { useNavigate } from "react-router-dom";
-import { displayMessage } from "../store/messageSlice/message";
-import ErrorCard from "../UI/ErrorCard";
+import { displayMessage } from "../../store/messageSlice/message";
+import ErrorCard from "../Cards/ErrorCard";
 interface SubjectFormProps {
   formWrapperProps?: any;
   defaultValues?: any;
@@ -238,6 +238,7 @@ const AddSubjectForm: React.FC<SubjectFormProps> = ({
       subjectId: defaultValues ? defaultValues._id : undefined,
     };
     await onSubmit(formData);
+
     setSubjectData((prev) => {
       return {
         name: {

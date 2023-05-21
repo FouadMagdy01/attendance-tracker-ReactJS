@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./LogoWithText.module.css";
-import { ReactComponent as AppLogo } from "../assets/svg/Logo.svg";
+import { ReactComponent as AppLogo } from "../../assets/svg/Logo.svg";
 
 interface LogoWithTextProps {
   text?: string;

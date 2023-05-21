@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 10px;
+}
+
+.attendanceCount {
+  font-family: "Rubik";
+  font-size: 36pxa;
+  font-weight: 600;
+}
