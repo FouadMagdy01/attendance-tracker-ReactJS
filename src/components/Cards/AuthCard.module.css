@@ -18,4 +18,7 @@
   .loginCardContainer {
     width: 75vw;
   }
+  .loginCardWrapper {
+    width: 85%;
+  }
 }

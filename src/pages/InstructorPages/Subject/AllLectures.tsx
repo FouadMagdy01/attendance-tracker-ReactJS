@@ -22,9 +22,6 @@ const AllLectures: React.FC<LecturePropsTypes> = ({ lectures }) => {
   const finishedLectures = lectures?.filter((e: any) => e.finished);
   return (
     <>
-      <Helmet>
-        <title></title>
-      </Helmet>
       <SectionTitle sectionTitle="Upcoming Lectures" />
       <div className={classes.lecturesWrapper}>
         {upcomingLectures && upcomingLectures.length === 0 && <EmptyLectures />}
