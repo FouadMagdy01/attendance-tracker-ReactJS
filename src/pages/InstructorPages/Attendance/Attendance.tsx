@@ -47,6 +47,7 @@ const Attendance = () => {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
       counter += 1;
     }
+    console.log(result);
     setLoading(true);
     const res = await api.post(
       "/instructor/attendance",
@@ -70,7 +71,7 @@ const Attendance = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       generateAndUpdate(12);
-    }, 10000);
+    }, 600000000000000000);
 
     return () => {
       clearInterval(interval);

@@ -10,6 +10,7 @@ import ExcelButton from "../../../components/Buttons/ExcelButton";
 import { Radio, RadioChangeEvent } from "antd";
 import LoadingOverlay from "../../../UI/LoadingOverlay";
 import CalculateButton from "../../../components/Buttons/CalculateBtn";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 const Attendance: React.FC = () => {
   const dispatch = useAppDispatch();
   const { attendance, fetchingAttendance, info } = useAppSelector(
@@ -77,18 +78,21 @@ const Attendance: React.FC = () => {
   useEffect(() => {
     dispatch(getSubjectAttendance({ subjectId: params.subjectId }));
   }, []);
+  console.log(attendance);
+  let data = attendance.students ? attendance.students : [];
 
   if (fetchingAttendance) {
     return <LoadingOverlay loadingDesc="Fetching Attendance" />;
   }
   return (
     <div>
+      <SectionTitle sectionTitle={`Total Count: ${attendance?.totalCount}`} />
       <div className={classes.topSection}>
         <ExcelButton
           defaultProps={{
             onClick: () => {
               const fileName = info.name + "_" + "Attendance";
-              downloadExcelSheet(attendance.students, fileName);
+              downloadExcelSheet(data, fileName);
             },
           }}
           className={classes.attendanceBtn}
@@ -107,7 +111,7 @@ const Attendance: React.FC = () => {
 
       <CustomTable
         rowKey={(record: any) => record.studentDetails._id}
-        dataSource={attendance.students}
+        dataSource={data}
         columns={columns}
       />
     </div>

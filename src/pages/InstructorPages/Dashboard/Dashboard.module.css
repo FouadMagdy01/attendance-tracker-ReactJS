@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   gap: 15px;
   margin: 15px 0;
+  transition: all 0.5s;
 }
 
 .manageButton {
@@ -17,11 +18,10 @@
 }
 
 .facultyCard {
-  background-color: #e5e5e5;
+  background-color: #f3f2f2;
   width: 200px;
   display: flex;
   position: relative;
-
   flex-direction: column;
   align-items: center;
   padding: 15px 10px 30px;
@@ -49,11 +49,11 @@
   width: 300px;
   cursor: pointer;
   transition: background-color 0.5s;
-  background-color: #c8cee8;
+  background-color: #e1dde7;
 }
 
 .subjectCard:hover {
-  background-color: #a3a9c6;
+  background-color: #c8c6cd;
 }
 .subjectLogo {
   display: flex;
@@ -64,6 +64,6 @@
 .facultyText {
   text-align: center;
   font-size: 18px;
-  font-family: "Rubik";
+  font-family: "Inter";
   font-weight: 500;
 }

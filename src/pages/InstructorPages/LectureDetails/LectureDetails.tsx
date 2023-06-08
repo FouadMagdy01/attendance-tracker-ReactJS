@@ -10,6 +10,7 @@ import LoadingOverlay from "../../../UI/LoadingOverlay";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import LabelCaption from "../../../components/LabelCaption/LabelCaption";
 import Button from "../../../components/Buttons/Button";
+import { Helmet } from "react-helmet";
 const LectureDetails = () => {
   const navigate = useNavigate();
   const auth = useAppSelector((state) => state.auth);
@@ -31,11 +32,15 @@ const LectureDetails = () => {
     getLecture();
   }, []);
 
+  console.log(lecture);
   if (!lecture) {
     return <LoadingOverlay loadingDesc="Fetching lecture data" />;
   }
   return (
     <>
+      <Helmet>
+        <title>{lecture?.name}</title>
+      </Helmet>
       <SectionTitle sectionTitle={lecture?.name} />
       <Divider>Lecture Details</Divider>
       <div className={classes.lectureDetails}>
