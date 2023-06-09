@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/attendance-tracker-ReactJS/static/css/main.a8322d7a.css",
-    "main.js": "/attendance-tracker-ReactJS/static/js/main.aa1e66cd.js",
+    "main.css": "/attendance-tracker-ReactJS/static/css/main.794fb6d5.css",
+    "main.js": "/attendance-tracker-ReactJS/static/js/main.32fe1693.js",
     "static/js/787.c81715e1.chunk.js": "/attendance-tracker-ReactJS/static/js/787.c81715e1.chunk.js",
     "static/media/Logo.svg": "/attendance-tracker-ReactJS/static/media/Logo.69ddbbc774a5bfe2189718d3013d0833.svg",
     "static/media/faculty.svg": "/attendance-tracker-ReactJS/static/media/faculty.61179ab4272ab9ddcdd73590a3e1a008.svg",
@@ -12,12 +12,12 @@
     "index.html": "/attendance-tracker-ReactJS/index.html",
     "static/media/SignOut.svg": "/attendance-tracker-ReactJS/static/media/SignOut.d9404b8ea6f95105a4b8bd666fdd54cd.svg",
     "static/media/SuccessTick.svg": "/attendance-tracker-ReactJS/static/media/SuccessTick.5c3d638c4403d8e6d68cc740a97e70e8.svg",
-    "main.a8322d7a.css.map": "/attendance-tracker-ReactJS/static/css/main.a8322d7a.css.map",
-    "main.aa1e66cd.js.map": "/attendance-tracker-ReactJS/static/js/main.aa1e66cd.js.map",
+    "main.794fb6d5.css.map": "/attendance-tracker-ReactJS/static/css/main.794fb6d5.css.map",
+    "main.32fe1693.js.map": "/attendance-tracker-ReactJS/static/js/main.32fe1693.js.map",
     "787.c81715e1.chunk.js.map": "/attendance-tracker-ReactJS/static/js/787.c81715e1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8322d7a.css",
-    "static/js/main.aa1e66cd.js"
+    "static/css/main.794fb6d5.css",
+    "static/js/main.32fe1693.js"
   ]
 }
