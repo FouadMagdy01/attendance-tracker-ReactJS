@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import CustomTable from "../components/CustomTable/CustomTable";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import classes from "./InstructorAssignTable.module.css";
-import api from "../services/api";
+import api from "../services/apis/api";
 import { useAppSelector } from "../hooks/reduxHooks";
 
 interface InstructorData {

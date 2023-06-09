@@ -1,0 +1,44 @@
+.card {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 400px;
+  padding: 20px 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.digitClassName {
+  background-color: #ebdfdf;
+  transition: all 0.5s;
+}
+
+.card:hover {
+  background-color: #ebdfdf;
+}
+
+.card:hover .digitClassName {
+  background-color: #f2f2f2;
+}
+.icon {
+  width: 100px;
+  margin: 10px 0;
+  height: 100px;
+}
+
+.texts {
+  color: darkslategrey;
+  font-family: "Inter";
+}
+
+.lectureDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.detailsItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

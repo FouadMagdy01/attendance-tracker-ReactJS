@@ -2,3 +2,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.startAttendance {
+  display: flex;
+  justify-content: center;
+}

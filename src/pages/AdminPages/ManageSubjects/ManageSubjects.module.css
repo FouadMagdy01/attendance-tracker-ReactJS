@@ -18,25 +18,25 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #777e91;
+  background-color: #cbc6d3;
   padding: 50px 10px;
-  width: 30%;
+  width: 25%;
   margin: 10px 0;
   cursor: pointer;
   transition: background-color 0.5s;
 }
 
 .addSubject:hover {
-  background-color: #202539;
+  background-color: #a69fb0;
 }
 .plusIcon {
-  color: #ffffff;
+  color: #201332;
   font-size: 40px;
   margin-bottom: 6px;
 }
 
 .addSubjectText {
-  color: #ffffff;
+  color: #201332;
   font-size: 22px;
   font-family: "Rubik";
   font-weight: 600;
@@ -47,7 +47,7 @@
     width: 100%;
   }
   .addSubject {
-    width: 50%;
+    width: 80%;
   }
 }
 

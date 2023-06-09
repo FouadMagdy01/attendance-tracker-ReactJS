@@ -1,0 +1,11 @@
+.lecturesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.lecturesHeader {
+  color: darkslategrey;
+  margin: 0 0 10px;
+}

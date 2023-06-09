@@ -29,22 +29,22 @@ const LectureCard: React.FC<LectureCardProps> = ({ lectureData, onClick }) => {
       <LectureSvg className={classes.icon} />
       <Divider orientation="center">Lecture Details</Divider>
       <div className={classes.lectureDetails}>
-        <p className={classes.detailsItem}>
+        <div className={classes.detailsItem}>
           <BiCategoryAlt className={classes.detailsIcon} />
           <LabelCaption label="Type" caption={lectureData.type} />
-        </p>
-        <p className={classes.detailsItem}>
+        </div>
+        <div className={classes.detailsItem}>
           <ImLocation className={classes.detailsIcon} />
           <LabelCaption label="Location" caption={lectureData.location} />
-        </p>
-        <p className={classes.detailsItem}>
+        </div>
+        <div className={classes.detailsItem}>
           <BsFillPersonVcardFill className={classes.detailsIcon} />
           <LabelCaption
             label="Total Attendees"
             caption={lectureData.numOfAttendees}
           />
-        </p>
-        <p className={classes.detailsItem}>
+        </div>
+        <div className={classes.detailsItem}>
           <ImStatsDots className={classes.detailsIcon} />
           <LabelCaption
             label="Presence percentage"
@@ -54,14 +54,14 @@ const LectureCard: React.FC<LectureCardProps> = ({ lectureData, onClick }) => {
                 : "N/A"
             }
           />
-        </p>
-        <p className={classes.detailsItem}>
+        </div>
+        <div className={classes.detailsItem}>
           <AiTwotoneCalendar className={classes.detailsIcon} />
           <LabelCaption
             label="Date"
             caption={dayjs(lectureData.date).format("YYYY/mm/dd HH:mm A")}
           />
-        </p>
+        </div>
       </div>
     </Card>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../hooks/reduxHooks";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import { Button, Result } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import LoadingOverlay from "../../../UI/LoadingOverlay";

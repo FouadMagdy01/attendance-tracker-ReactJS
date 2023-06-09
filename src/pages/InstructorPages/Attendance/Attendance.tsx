@@ -2,9 +2,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import classes from "./Attendance.module.css";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../hooks/reduxHooks";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import { QRCode } from "antd";
-import attendanceSocket from "../../../sockets/attendance";
+import io from "socket.io-client";
 import LoadingOverlay from "../../../UI/LoadingOverlay";
 import CustomTable from "../../../components/CustomTable/CustomTable";
 import Button from "../../../components/Buttons/Button";
@@ -24,10 +24,13 @@ const Attendance = () => {
       key: "studentId",
     },
   ];
+
   const [attendees, setAttendees] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const auth = useAppSelector((state) => state.auth);
+
   useEffect(() => {
+    const attendanceSocket = io("http://localhost:8080/instructor/attendance");
     attendanceSocket.on("connect", () => {
       attendanceSocket.emit("attendance", lectureId);
     });
@@ -35,6 +38,9 @@ const Attendance = () => {
     attendanceSocket.on("new attendee", (data) => {
       setAttendees(data);
     });
+    return () => {
+      attendanceSocket.close();
+    };
   }, []);
 
   const generateAndUpdate = async (length: any) => {
@@ -47,7 +53,6 @@ const Attendance = () => {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
       counter += 1;
     }
-    console.log(result);
     setLoading(true);
     const res = await api.post(
       "/instructor/attendance",
@@ -71,8 +76,7 @@ const Attendance = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       generateAndUpdate(12);
-    }, 600000000000000000);
-
+    }, 10000);
     return () => {
       clearInterval(interval);
     };

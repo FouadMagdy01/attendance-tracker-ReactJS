@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "../../../hooks/reduxHooks";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Divider } from "antd";
@@ -11,6 +11,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import LabelCaption from "../../../components/LabelCaption/LabelCaption";
 import Button from "../../../components/Buttons/Button";
 import { Helmet } from "react-helmet";
+import { formStyles } from "../../../constants/formStyles";
 const LectureDetails = () => {
   const navigate = useNavigate();
   const auth = useAppSelector((state) => state.auth);
@@ -64,14 +65,29 @@ const LectureDetails = () => {
       </div>
       <Divider></Divider>
       {lecture && <CountDown date={lecture.date} />}
-      <Button
-        buttonConfigProps={{
-          onClick: () => {
-            navigate(`/Attendance/${params.lectureId}`);
-          },
-        }}
-        buttonLabel="Take Attendance"
-      />
+      <Divider></Divider>
+      <div className={classes.startAttendance}>
+        <Button
+          sxStyles={{
+            textTransform: "none",
+            transition: "all 0.5s",
+            backgroundColor: "#657ea6",
+            "&:hover": {
+              backgroundColor: "#304566",
+            },
+            fontWeight: "600",
+            borderRadius: "10px",
+            padding: "15px 25px",
+            mt: "15px",
+          }}
+          buttonConfigProps={{
+            onClick: () => {
+              navigate(`/Attendance/${params.lectureId}`);
+            },
+          }}
+          buttonLabel="Take Attendance"
+        />
+      </div>
     </>
   );
 };

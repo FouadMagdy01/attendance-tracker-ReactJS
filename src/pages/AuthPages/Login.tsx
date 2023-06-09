@@ -2,7 +2,7 @@ import classes from "./Login.module.css";
 import React, { useState } from "react";
 import LoginForm from "../../components/Forms/LoginForm";
 import LogoWithText from "../../components/LogoWithText/LogoWithText";
-import api from "../../services/api";
+import api from "../../services/apis/api";
 import { signIn } from "../../store/authSlice/reducers/signIn";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { SignInData } from "../../interfaces/signInData";

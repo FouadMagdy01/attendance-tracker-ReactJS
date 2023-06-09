@@ -9,7 +9,7 @@ import classes from "./SubjectForm.module.css";
 import { formStyles } from "../../constants/formStyles";
 import Button from "../Buttons/Button";
 import InstructorAssignTable from "../../UI/InstructorAssignTable";
-import api from "../../services/api";
+import api from "../../services/apis/api";
 import { useAppSelector, useAppDispatch } from "../../hooks/reduxHooks";
 import Dropdown from "../Input/Dropdown";
 import { semesterOptions, yearsOptions } from "../../constants/options";

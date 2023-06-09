@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import { displayMessage } from "../../messageSlice/message";
 
 export const createLecture = createAsyncThunk(

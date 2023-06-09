@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import AddSubjectForm from "../../../components/Forms/SubjectForm";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import { message } from "antd";
 import { getSubject } from "../../../store/subjectsSlice/reducers/getSubject";
 import { displayMessage } from "../../../store/messageSlice/message";

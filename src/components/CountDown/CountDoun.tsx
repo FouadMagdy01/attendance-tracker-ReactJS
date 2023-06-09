@@ -5,9 +5,10 @@ import TimeCard from "./TimeCard";
 import SectionTitle from "../SectionTitle/SectionTitle";
 interface CountDownProps {
   date?: any;
+  digitClassName?: any;
 }
 
-const CountDown: React.FC<CountDownProps> = ({ date }) => {
+const CountDown: React.FC<CountDownProps> = ({ date, digitClassName }) => {
   const [countDown, setCountDown] = useState({
     days: 0,
     hours: 0,
@@ -50,10 +51,26 @@ const CountDown: React.FC<CountDownProps> = ({ date }) => {
     <>
       <SectionTitle sectionTitle="Time Left" />
       <div className={classes.container}>
-        <TimeCard timeUnit="Days" value={countDown.days} />
-        <TimeCard timeUnit="Hours" value={countDown.hours} />
-        <TimeCard timeUnit="Minutes" value={countDown.minutes} />
-        <TimeCard timeUnit="Seconds" value={countDown.seconds} />
+        <TimeCard
+          digitClassName={digitClassName}
+          timeUnit="Days"
+          value={countDown.days}
+        />
+        <TimeCard
+          digitClassName={digitClassName}
+          timeUnit="Hours"
+          value={countDown.hours}
+        />
+        <TimeCard
+          digitClassName={digitClassName}
+          timeUnit="Minutes"
+          value={countDown.minutes}
+        />
+        <TimeCard
+          digitClassName={digitClassName}
+          timeUnit="Seconds"
+          value={countDown.seconds}
+        />
       </div>
     </>
   );

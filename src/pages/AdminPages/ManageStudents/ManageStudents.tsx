@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CustomTable from "../../../components/CustomTable/CustomTable";
 import { Link } from "react-router-dom";
 import { Divider } from "antd";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 
 const ManageStudents = () => {

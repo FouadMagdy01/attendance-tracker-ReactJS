@@ -6,7 +6,7 @@ import { HiUserAdd } from "react-icons/hi";
 import { BsFilePersonFill } from "react-icons/bs";
 import InstructorAssignTable from "../../../UI/InstructorAssignTable";
 import { useAppSelector } from "../../../hooks/reduxHooks";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 const Instructors = () => {
   const randomColors = [
     "#DB54FD",

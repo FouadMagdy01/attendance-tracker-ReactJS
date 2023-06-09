@@ -1,6 +1,6 @@
 import { Tabs, TabsProps } from "antd";
 import LectureForm from "../../../components/Forms/LectureForm";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { displayMessage } from "../../../store/messageSlice/message";
 import AllLectures from "./AllLectures";

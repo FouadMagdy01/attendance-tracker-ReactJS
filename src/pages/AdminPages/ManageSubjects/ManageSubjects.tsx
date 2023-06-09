@@ -7,7 +7,7 @@ import classes from "./ManageSubjects.module.css";
 import { Button, Input, Modal } from "antd";
 import Dropdown from "../../../components/Input/Dropdown";
 import Card from "../../../components/Cards/Card";
-import api from "../../../services/api";
+import api from "../../../services/apis/api";
 import AddSubjectForm from "../../../components/Forms/SubjectForm";
 import { displayMessage } from "../../../store/messageSlice/message";
 const ManageSubjects = () => {

@@ -6,17 +6,20 @@ interface ExcelButtonProps {
   type?: ButtonType;
   className?: any;
   defaultProps?: any;
+  additionalText?: String;
 }
 
 const ExcelButton: React.FC<ExcelButtonProps> = ({
   type,
   className,
   defaultProps,
+  additionalText,
 }) => {
   return (
     <div {...defaultProps} className={`${classes.excelBtn} ${className}`}>
       <RiFileExcel2Line className={classes.whiteIcon} />
       <p className={classes.whiteText}>
+        {additionalText}
         {type === "import"
           ? "import from excel sheet"
           : "export to excel sheet"}
