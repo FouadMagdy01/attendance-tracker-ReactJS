@@ -23,7 +23,9 @@ const LoginPage = () => {
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        <LogoWithText text={`THE OPTIMIZED WORKFLOW\nOUT OF THE BOX`} />
+        <LogoWithText
+          text={`THE OPTIMIZED ATTENDANCE WORKFLOW\nOUT OF THE BOX`}
+        />
         <LoginForm
           err={auth.err}
           isLoading={auth.signingIn}

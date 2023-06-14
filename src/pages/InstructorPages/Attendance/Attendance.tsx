@@ -30,7 +30,9 @@ const Attendance = () => {
   const auth = useAppSelector((state) => state.auth);
 
   useEffect(() => {
-    const attendanceSocket = io("http://localhost:8080/instructor/attendance");
+    const attendanceSocket = io(
+      "https://universityattendance.herokuapp.com/instructor/attendance"
+    );
     attendanceSocket.on("connect", () => {
       attendanceSocket.emit("attendance", lectureId);
     });
@@ -53,6 +55,7 @@ const Attendance = () => {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
       counter += 1;
     }
+    console.log(result);
     setLoading(true);
     const res = await api.post(
       "/instructor/attendance",

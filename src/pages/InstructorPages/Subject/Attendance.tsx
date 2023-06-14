@@ -145,6 +145,7 @@ const Attendance: React.FC = () => {
 
   let data = attendance.students ? attendance.students : [];
 
+  console.log(data);
   if (fetchingAttendance) {
     return <LoadingOverlay loadingDesc="Fetching Attendance" />;
   }
