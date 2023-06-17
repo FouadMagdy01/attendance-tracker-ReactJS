@@ -59,7 +59,7 @@ const LectureCard: React.FC<LectureCardProps> = ({ lectureData, onClick }) => {
           <AiTwotoneCalendar className={classes.detailsIcon} />
           <LabelCaption
             label="Date"
-            caption={dayjs(lectureData.date).format("YYYY/mm/dd HH:mm A")}
+            caption={dayjs(lectureData.date).format("YYYY/MM/DD HH:mm A")}
           />
         </div>
       </div>

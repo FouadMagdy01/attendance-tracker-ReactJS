@@ -55,11 +55,12 @@ const LectureForm: React.FC<LectureFormProps> = ({
   });
 
   const changeDateHandler = (value: DatePickerProps["value"]) => {
+
     setLectureData((prev) => {
       return {
         ...prev,
         date: {
-          value,
+          value: value,
           isValid: true,
         },
       };

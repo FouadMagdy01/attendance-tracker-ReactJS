@@ -7,6 +7,7 @@ import { fetchLocalToken } from "./store/authSlice/auth";
 import { message } from "antd";
 import InstructorsNavigator from "./navigation/Instructor";
 function App() {
+  console.log(process.env);
   const [messageApi, contextHolder] = message.useMessage();
   const auth = useAppSelector((state) => state.auth);
   let isFirst = true;

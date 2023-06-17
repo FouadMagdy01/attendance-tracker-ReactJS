@@ -29,22 +29,6 @@ const Attendance = () => {
   const [loading, setLoading] = useState(false);
   const auth = useAppSelector((state) => state.auth);
 
-  useEffect(() => {
-    const attendanceSocket = io(
-      "https://universityattendance.herokuapp.com/instructor/attendance"
-    );
-    attendanceSocket.on("connect", () => {
-      attendanceSocket.emit("attendance", lectureId);
-    });
-
-    attendanceSocket.on("new attendee", (data) => {
-      setAttendees(data);
-    });
-    return () => {
-      attendanceSocket.close();
-    };
-  }, []);
-
   const generateAndUpdate = async (length: any) => {
     let result = "";
     const characters =
@@ -69,11 +53,28 @@ const Attendance = () => {
         },
       }
     );
+    console.log("updated");
     setLoading(false);
   };
 
   useEffect(() => {
-    generateAndUpdate(12);
+    const attendanceSocket = io(
+      process.env.REACT_APP_BASE_URL + "/instructor/attendance"
+    );
+    attendanceSocket.on("connect", () => {
+      attendanceSocket.emit("attendance", lectureId);
+    });
+
+    attendanceSocket.on("attendance-joined", (data) => {
+      generateAndUpdate(12);
+    });
+
+    attendanceSocket.on("new attendee", (data) => {
+      setAttendees(data);
+    });
+    return () => {
+      attendanceSocket.close();
+    };
   }, []);
 
   useEffect(() => {
