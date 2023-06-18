@@ -12,8 +12,7 @@ const DashboardNavigator = () => {
   return (
     <AdminSideBar>
       <Routes>
-        <Route path="*" element={<Navigate to="Home" />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="*" element={<Navigate to="Subjects" />} />
         <Route path="/Subjects" element={<ManageSubjects />} />
         <Route path="/Students" element={<ManageStudents />} />
         <Route path="/Instructors" element={<Instructors />} />

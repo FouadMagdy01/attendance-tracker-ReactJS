@@ -17,11 +17,6 @@ const AdminSideBar: React.FC<AdminSideBarProps> = ({ children }) => {
   const dispatch = useAppDispatch();
   const sideBarItems = [
     {
-      path: "/Home",
-      name: "Home",
-      icon: <AiFillHome />,
-    },
-    {
       path: "/Subjects",
       name: "Manage Subjects",
       icon: <MdSubject />,
@@ -38,7 +33,7 @@ const AdminSideBar: React.FC<AdminSideBarProps> = ({ children }) => {
     },
     {
       path: "/Info",
-      name: "Faculty Info",
+      name: "More",
       icon: <AiFillInfoCircle />,
     },
   ];

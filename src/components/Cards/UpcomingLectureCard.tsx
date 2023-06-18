@@ -11,10 +11,14 @@ import CountDown from "../CountDown/CountDoun";
 
 interface Props {
   lectureData?: any;
+  defaultProps?: any;
 }
-const UpcomingLectureCard: React.FC<Props> = ({ lectureData }) => {
+const UpcomingLectureCard: React.FC<Props> = ({
+  lectureData,
+  defaultProps,
+}) => {
   return (
-    <Card classNames={classes.card}>
+    <Card defaultProps={defaultProps} classNames={classes.card}>
       <h2 className={classes.texts}>{lectureData.subject.name}</h2>
       <Divider></Divider>
       <h3 className={classes.texts}>{lectureData.name}</h3>
