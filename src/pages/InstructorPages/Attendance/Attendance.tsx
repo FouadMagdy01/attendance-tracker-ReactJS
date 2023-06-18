@@ -8,6 +8,7 @@ import io from "socket.io-client";
 import LoadingOverlay from "../../../UI/LoadingOverlay";
 import CustomTable from "../../../components/CustomTable/CustomTable";
 import Button from "../../../components/Buttons/Button";
+import { styles } from "../../../constants/styles";
 const Attendance = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ const Attendance = () => {
     });
     return () => {
       attendanceSocket.close();
+      generateAndUpdate(12);
     };
   }, []);
 
@@ -100,6 +102,7 @@ const Attendance = () => {
                 Total attendees: {attendees.attendees.length}
               </p>
               <CustomTable
+                pageSize={6}
                 rowKey={"_id"}
                 tableConfigProps={{
                   className: classes.table,
@@ -107,23 +110,24 @@ const Attendance = () => {
                 columns={columns}
                 dataSource={attendees.attendees}
               />
-              <Button
-                buttonLabel="Terminate Session"
-                buttonConfigProps={{
-                  onClick: async () => {
-                    await generateAndUpdate(36);
-                    navigate("/Home");
-                  },
-                }}
-                sxStyles={{
-                  height: "50px",
-                  textTransform: "none",
-                  backgroundColor: "red",
-                  "&:hover": {
-                    backgroundColor: "#8a2922",
-                  },
-                }}
-              />
+              <div>
+                <Button
+                  buttonLabel="Terminate Session"
+                  buttonConfigProps={{
+                    onClick: async () => {
+                      await generateAndUpdate(36);
+                      navigate("/lectures/" + params.lectureId);
+                    },
+                  }}
+                  sxStyles={{
+                    ...styles.button,
+                    backgroundColor: "#bf1f13",
+                    "&:hover": {
+                      backgroundColor: "#8a2922",
+                    },
+                  }}
+                />
+              </div>
             </div>
             <QRCode
               errorLevel="M"

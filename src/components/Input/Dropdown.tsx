@@ -16,6 +16,7 @@ interface DropdownProps {
   menuItemConfigProps?: any;
   dropdownTitle?: any;
   helperText?: String | null;
+  labelProps?: any;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -27,6 +28,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   menuItemConfigProps,
   dropdownTitle,
   helperText,
+  labelProps,
 }) => {
   return (
     <>
@@ -46,6 +48,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           }}
           size="small"
           id="demo-simple-select-label"
+          {...labelProps}
         >
           {dropdownLabel}
         </InputLabel>

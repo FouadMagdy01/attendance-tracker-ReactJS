@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomTable from "../../../components/CustomTable/CustomTable";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -10,6 +10,7 @@ import Card from "../../../components/Cards/Card";
 import api from "../../../services/apis/api";
 import AddSubjectForm from "../../../components/Forms/SubjectForm";
 import { displayMessage } from "../../../store/messageSlice/message";
+import { semesterOptions, yearsOptions } from "../../../constants/options";
 const ManageSubjects = () => {
   const [filters, setFilters] = useState({
     searchQuery: "",
@@ -65,6 +66,10 @@ const ManageSubjects = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
+      filteredValue: [filters.searchQuery],
+      onFilter(value: any, record: any) {
+        return record.name.toLowerCase().includes(value.toLowerCase());
+      },
     },
     {
       title: "Semester",
@@ -104,12 +109,39 @@ const ManageSubjects = () => {
       key: "",
       render: (_: any, subject: any) => (
         <>
-          <Link to={`/subject/${subject._id}`}>Subject Details</Link>
+          <Link to={`/subjects/${subject._id}`}>Subject Details</Link>
         </>
       ),
     },
   ];
 
+  const changeFiltersInputs = (
+    filterIdentifier: any,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFilters((prev) => {
+      return {
+        ...prev,
+        [filterIdentifier]: event.target.value,
+      };
+    });
+  };
+
+  const handleFilteringData = (subjectsData: any) => {
+    let dataToFilter = subjectsData;
+    console.log(dataToFilter);
+    if (filters.year != "All") {
+      dataToFilter = dataToFilter.filter((subject: any) => {
+        return subject.year.includes(filters.year);
+      });
+    }
+    if (filters.semester != "All") {
+      dataToFilter = dataToFilter.filter((subject: any) => {
+        return subject.semester.includes(filters.semester);
+      });
+    }
+    return dataToFilter;
+  };
   return (
     <div>
       <Modal
@@ -135,15 +167,28 @@ const ManageSubjects = () => {
           <AiOutlinePlus className={classes.plusIcon} />
           <p className={classes.addSubjectText}>Add Subject</p>
         </Card>
-        <div className="w-75 text-center">
+        <div>
           <Input.Search
             size="large"
+            value={filters.searchQuery}
+            onChange={changeFiltersInputs.bind(this, "searchQuery")}
             className={classes.searchBar}
             placeholder="Search for a subject"
           />
           <div className={classes.filterSection}>
             <Dropdown
+              dropdownItems={[
+                {
+                  label: "All",
+                  value: "All",
+                },
+                ...yearsOptions,
+              ]}
               dropdownLabel="Filter by year"
+              selectConfigProps={{
+                value: filters.year,
+                onChange: changeFiltersInputs.bind(this, "year"),
+              }}
               formControlConfigProps={{
                 sx: {
                   width: "45%",
@@ -153,6 +198,17 @@ const ManageSubjects = () => {
               }}
             />
             <Dropdown
+              dropdownItems={[
+                {
+                  label: "All",
+                  value: "All",
+                },
+                ...semesterOptions,
+              ]}
+              selectConfigProps={{
+                value: filters.semester,
+                onChange: changeFiltersInputs.bind(this, "semester"),
+              }}
               dropdownLabel="Filter by semester"
               formControlConfigProps={{
                 sx: {
@@ -165,7 +221,7 @@ const ManageSubjects = () => {
           <CustomTable
             rowKey={"_id"}
             columns={columns}
-            dataSource={subjects}
+            dataSource={handleFilteringData(subjects)}
             loading={isLoading}
             pageSize={8}
           />

@@ -6,6 +6,7 @@ import Instructors from "../pages/AdminPages/Instructors/Instructors";
 import FacultyInfo from "../pages/AdminPages/FacultyInfo/FacultyInfo";
 import AdminSideBar from "../layout/AdminSideBar";
 import SubjectDetails from "../pages/AdminPages/SubjectDetails/SubjectDetails";
+import StudentDetails from "../pages/AdminPages/StudentDetails/StudentDetails";
 
 const DashboardNavigator = () => {
   return (
@@ -17,7 +18,8 @@ const DashboardNavigator = () => {
         <Route path="/Students" element={<ManageStudents />} />
         <Route path="/Instructors" element={<Instructors />} />
         <Route path="/info" element={<FacultyInfo />} />
-        <Route path="/Subject/:id" element={<SubjectDetails />} />
+        <Route path="/Subjects/:subjectId" element={<SubjectDetails />} />
+        <Route path="/students/:studentId" element={<StudentDetails />} />
       </Routes>
     </AdminSideBar>
   );

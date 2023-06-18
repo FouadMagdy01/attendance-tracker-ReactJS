@@ -7,6 +7,7 @@ interface ExcelButtonProps {
   className?: any;
   defaultProps?: any;
   additionalText?: String;
+  onUpload?: any;
 }
 
 const ExcelButton: React.FC<ExcelButtonProps> = ({
@@ -14,17 +15,33 @@ const ExcelButton: React.FC<ExcelButtonProps> = ({
   className,
   defaultProps,
   additionalText,
+  onUpload,
 }) => {
   return (
-    <div {...defaultProps} className={`${classes.excelBtn} ${className}`}>
-      <RiFileExcel2Line className={classes.whiteIcon} />
-      <p className={classes.whiteText}>
-        {additionalText}
-        {type === "import"
-          ? "import from excel sheet"
-          : "export to excel sheet"}
-      </p>
-    </div>
+    <>
+      {type === "import" && (
+        <input
+          accept=".xlsx,.xls"
+          type="file"
+          id="actual-btn"
+          hidden
+          onChange={onUpload}
+        />
+      )}
+      <label
+        {...defaultProps}
+        htmlFor="actual-btn"
+        className={`${classes.excelBtn} ${className}`}
+      >
+        <RiFileExcel2Line className={classes.whiteIcon} />
+        <p className={classes.whiteText}>
+          {additionalText}
+          {type === "import"
+            ? "import from excel sheet"
+            : "export to excel sheet"}
+        </p>
+      </label>
+    </>
   );
 };
 

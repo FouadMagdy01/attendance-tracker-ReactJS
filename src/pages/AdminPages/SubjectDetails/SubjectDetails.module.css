@@ -2,7 +2,16 @@
   display: flex;
   flex-direction: column;
 }
-
+.excelBtn {
+  width: 40%;
+  margin-bottom: 15px;
+}
 .switch {
   margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .excelBtn {
+    width: 75%;
+  }
 }

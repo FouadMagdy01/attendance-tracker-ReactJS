@@ -2,31 +2,24 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../../services/apis/api";
 import { displayMessage } from "../../messageSlice/message";
 
-export const createLecture = createAsyncThunk(
-  "instructorSubject/lectures",
+export const deleteStudent = createAsyncThunk(
+  "/admin/students/delete",
   async (args: any, ThunkAPI) => {
+    const { studentId } = args;
     const state: any = ThunkAPI.getState();
-
     try {
-      const response = await api.post(
-        "/instructor/createLecture",
-        {
-          type: args.type,
-          date: args.date,
-          subjectId: args.subjectId,
-          name: args.name,
-          location: args.location,
+      const response = await api.delete("/admin/students/delete", {
+        headers: {
+          Authorization: `Bearer ${state.auth.token}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${state.auth.token}`,
-          },
-        }
-      );
+        data: {
+          studentId,
+        },
+      });
       ThunkAPI.dispatch(
         displayMessage({
           type: "success",
-          context: "Lecture created successfully",
+          context: response.data.message,
         })
       );
       return response.data;
@@ -34,7 +27,7 @@ export const createLecture = createAsyncThunk(
       ThunkAPI.dispatch(
         displayMessage({
           type: "error",
-          context: "something went wrong while trying to add lecture",
+          context: "something went wrong while fetching student details",
         })
       );
       ThunkAPI.rejectWithValue(

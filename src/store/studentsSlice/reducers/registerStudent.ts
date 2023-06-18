@@ -2,31 +2,20 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../../services/apis/api";
 import { displayMessage } from "../../messageSlice/message";
 
-export const createLecture = createAsyncThunk(
-  "instructorSubject/lectures",
+export const registerStudent = createAsyncThunk(
+  "/admin/students/register",
   async (args: any, ThunkAPI) => {
     const state: any = ThunkAPI.getState();
-
     try {
-      const response = await api.post(
-        "/instructor/createLecture",
-        {
-          type: args.type,
-          date: args.date,
-          subjectId: args.subjectId,
-          name: args.name,
-          location: args.location,
+      const response = await api.post("/admin/students/register", args, {
+        headers: {
+          Authorization: `Bearer ${state.auth.token}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${state.auth.token}`,
-          },
-        }
-      );
+      });
       ThunkAPI.dispatch(
         displayMessage({
           type: "success",
-          context: "Lecture created successfully",
+          context: "Student have been registered successfully",
         })
       );
       return response.data;
@@ -34,7 +23,8 @@ export const createLecture = createAsyncThunk(
       ThunkAPI.dispatch(
         displayMessage({
           type: "error",
-          context: "something went wrong while trying to add lecture",
+          context:
+            "something went wrong while registering student from excel sheet",
         })
       );
       ThunkAPI.rejectWithValue(

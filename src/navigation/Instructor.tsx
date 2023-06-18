@@ -13,7 +13,7 @@ const InstructorsNavigator = () => {
         <Route path="*" element={<Navigate to="Home" />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Subjects" element={<Dashboard />} />
-        <Route path="/Subject/:subjectId" element={<Subject />} />
+        <Route path="/Subjects/:subjectId" element={<Subject />} />
         <Route path="/Lectures/:lectureId" element={<LectureDetails />} />
         <Route path="/Attendance/:lectureId" element={<Attendance />} />
       </Routes>

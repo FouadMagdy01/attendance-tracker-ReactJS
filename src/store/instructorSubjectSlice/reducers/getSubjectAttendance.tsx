@@ -20,7 +20,9 @@ export const getSubjectAttendance = createAsyncThunk(
       );
       return response.data;
     } catch (err: any) {
-      return err.data.message ? err.data.message : "Something went wrong";
+      ThunkAPI.rejectWithValue(
+        err.data.message ? err.data.message : "Something wen wrong"
+      );
     }
   }
 );

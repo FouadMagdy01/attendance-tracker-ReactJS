@@ -82,7 +82,7 @@ const Dashboard = () => {
                 <Card
                   defaultProps={{
                     onClick: () => {
-                      navigate(`/Subject/${subject._id}`);
+                      navigate(`/Subjects/${subject._id}`);
                     },
                   }}
                   key={subject._id}

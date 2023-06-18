@@ -1,21 +1,67 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CustomTable from "../../../components/CustomTable/CustomTable";
-import { Divider, Empty, Switch, Typography } from "antd";
+import { Divider, Empty, Switch, Table, Typography } from "antd";
 import LabelCaption from "../../../components/LabelCaption/LabelCaption";
 import classes from "./SubjectDetails.module.css";
 import Button from "../../../components/Buttons/Button";
-import ErrorOverlay from "../../../UI/ErrorOverloay";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { acceptStudent } from "../../../store/subjectsSlice/reducers/acceptStudent";
 import { rejectStudent } from "../../../store/subjectsSlice/reducers/rejectStudent";
-import { getSubject } from "../../../store/subjectsSlice/reducers/getSubject";
+import { TableRowSelection } from "antd/es/table/interface";
+import { displayMessage } from "../../../store/messageSlice/message";
+import ExcelButton from "../../../components/Buttons/ExcelButton";
+import { excel_to_json } from "../../../utils/excel_to_json";
 
 const SubjectInfo = () => {
   const dispatch = useAppDispatch();
+  const multipleOperationHandler = async (type: any) => {
+    try {
+      await Promise.all(
+        selectedRows.map(async (studentId) => {
+          if (type === "accept") {
+            dispatch(acceptStudent({ studentId, subjectId }));
+          } else {
+            dispatch(rejectStudent({ studentId, subjectId }));
+          }
+          setSelectedRows((prev) => {
+            return prev.filter((e: any) => e === studentId);
+          });
+        })
+      );
+      dispatch(
+        displayMessage({
+          type: "success",
+          context: "Success",
+          duration: 5,
+        })
+      );
+    } catch (err: any) {
+      dispatch(
+        displayMessage({
+          type: "error",
+          duration: 7,
+          context: err.response.data.message
+            ? err.response.data.message
+            : "Something went wrong",
+        })
+      );
+    }
+  };
+
   const params = useParams();
-  const subjectId = params.id;
+  const subjectId = params.subjectId;
+  interface studentData {
+    _id: string;
+    name: string;
+    email: string;
+    semester: string;
+    academicYear: string;
+    studentId: Number;
+    faculty: string;
+  }
   const [activeStudents, setActiveStudents] = useState(true);
+  const [selectedRows, setSelectedRows] = useState([]);
   const { subjectObject, isLoading } = useAppSelector((state) => state.subject);
   const [query, setQuery] = useState("");
   const columns = [
@@ -40,7 +86,18 @@ const SubjectInfo = () => {
       render: (_: any, record: any) => record.academicYear,
     },
     {
-      title: "",
+      title:
+        selectedRows.length > 0 ? (
+          <Button
+            buttonConfigProps={{
+              onClick: multipleOperationHandler.bind(this, "accept"),
+            }}
+            sxStyles={styles.acceptBtn}
+            buttonLabel="Accept Selected Students"
+          />
+        ) : (
+          ""
+        ),
       key: "",
       render: (_: any, record: any) => (
         <Button
@@ -54,7 +111,18 @@ const SubjectInfo = () => {
       isSpecial: true,
     },
     {
-      title: "",
+      title:
+        selectedRows.length > 0 ? (
+          <Button
+            buttonConfigProps={{
+              onClick: multipleOperationHandler.bind(this, "reject"),
+            }}
+            sxStyles={styles.rejectBtn}
+            buttonLabel="Reject Selected Students"
+          />
+        ) : (
+          ""
+        ),
       key: "",
       render: (_: any, record: any) => (
         <Button
@@ -77,6 +145,20 @@ const SubjectInfo = () => {
     dispatch(rejectStudent({ studentId, subjectId }));
   };
 
+  const onSelectChange = (newSelectedRowKeys: any) => {
+    setSelectedRows(newSelectedRowKeys);
+  };
+
+  const rowSelection: TableRowSelection<studentData> = {
+    selectedRowKeys: selectedRows,
+    onChange: onSelectChange,
+    selections: [
+      Table.SELECTION_ALL,
+      Table.SELECTION_INVERT,
+      Table.SELECTION_NONE,
+    ],
+  };
+
   const toggleDisplayedStudentsData = () => {
     if (subjectObject) {
       return activeStudents
@@ -97,6 +179,32 @@ const SubjectInfo = () => {
     return filteredStudents;
   };
 
+  const uploadFileHandler = async (event: any) => {
+    const file = event.target.files[0];
+    try {
+      const jsonData = await excel_to_json(file);
+      const importedStudentRowKeys = subjectObject.students.pending.filter(
+        (student: any) => {
+          return jsonData.some((e: any) => {
+            return e.studentId === student.studentId;
+          });
+        }
+      );
+      const ImportedSelectedRows: any = [];
+      importedStudentRowKeys.forEach((e: any) => {
+        ImportedSelectedRows.push(e._id);
+      });
+      setSelectedRows(ImportedSelectedRows);
+    } catch (err) {
+      dispatch(
+        displayMessage({
+          type: "error",
+          duration: 5,
+          context: "Something went wrong while trying to upload the file",
+        })
+      );
+    }
+  };
   return (
     <div>
       <h1>{subjectObject?.name}</h1>
@@ -123,6 +231,12 @@ const SubjectInfo = () => {
         <LabelCaption label="Semester" caption={subjectObject?.semester} />
       </div>
       <Divider plain>Students</Divider>
+      <ExcelButton
+        onUpload={uploadFileHandler}
+        className={classes.excelBtn}
+        type="import"
+      />
+      <Divider></Divider>
       <Switch
         style={{
           backgroundColor: activeStudents ? "green" : "orange",
@@ -139,6 +253,9 @@ const SubjectInfo = () => {
         columns={
           activeStudents ? columns.filter((e: any) => !e.isSpecial) : columns
         }
+        tableConfigProps={{
+          rowSelection: activeStudents ? undefined : rowSelection,
+        }}
         dataSource={filteredData()}
       />
     </div>

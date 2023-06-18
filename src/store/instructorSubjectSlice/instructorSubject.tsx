@@ -27,6 +27,7 @@ const initialState = {
   creatingLecture: false,
   errMessage: "",
 } as stateTypes;
+
 const instructorSubjectSlice = createSlice({
   name: "instructorSubject",
   initialState,

@@ -1,0 +1,42 @@
+.excelBtn {
+  width: 40%;
+}
+.buttonsWrapper {
+  margin-top: 15px;
+}
+.searchBar {
+  width: 45%;
+  margin: 10px 0;
+}
+
+.addStudentBtn {
+  background-color: #ced4da;
+  width: 40%;
+}
+.addStudentBtn:hover {
+  background-color: #a3aeba;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.btnText {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+  .excelBtn {
+    width: 75%;
+  }
+  .addStudentBtn {
+    width: 75%;
+  }
+  .searchBar {
+    width: 100%;
+  }
+}

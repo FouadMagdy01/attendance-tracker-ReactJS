@@ -14,7 +14,7 @@ const SubjectDetails = () => {
   const navigate = useNavigate();
   const { isLoading, err } = useAppSelector((state) => state.subject);
   useEffect(() => {
-    dispatch(getSubject({ id: params.id }));
+    dispatch(getSubject({ id: params.subjectId }));
     return () => {
       dispatch(clearSubjectDetails({}));
     };

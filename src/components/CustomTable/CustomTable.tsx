@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import React from "react";
 
-interface SafqaTableProps {
+interface CustomTableProps {
   dataSource?: any[];
   loading?: boolean;
   columns?: any[];
@@ -10,7 +10,7 @@ interface SafqaTableProps {
   tableConfigProps?: any;
 }
 
-const CustomTable: React.FC<SafqaTableProps> = ({
+const CustomTable: React.FC<CustomTableProps> = ({
   dataSource,
   loading,
   columns,

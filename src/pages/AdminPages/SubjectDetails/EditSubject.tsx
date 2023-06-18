@@ -1,17 +1,13 @@
-import { useParams } from "react-router-dom";
 import AddSubjectForm from "../../../components/Forms/SubjectForm";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import api from "../../../services/apis/api";
-import { message } from "antd";
 import { getSubject } from "../../../store/subjectsSlice/reducers/getSubject";
 import { displayMessage } from "../../../store/messageSlice/message";
 
 const EditSubject = () => {
   const { subjectObject } = useAppSelector((state) => state.subject);
-  console.log(subjectObject);
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.auth);
-  const [messageApi, contextHolder] = message.useMessage();
   const updateSubjectInformationHandler = async (subjectData: any) => {
     const response = await api.post("admin/edit-subject", subjectData, {
       headers: {
@@ -19,11 +15,6 @@ const EditSubject = () => {
       },
     });
 
-    messageApi.open({
-      content: "Subject information was edited successfully",
-      duration: 4,
-      type: "success",
-    });
     dispatch(
       displayMessage({
         type: "success",
@@ -36,7 +27,6 @@ const EditSubject = () => {
 
   return (
     <div>
-      {contextHolder}
       <AddSubjectForm
         onSubmit={updateSubjectInformationHandler}
         defaultValues={subjectObject}

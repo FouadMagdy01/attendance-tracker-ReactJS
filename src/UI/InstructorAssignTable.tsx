@@ -6,7 +6,8 @@ import CustomTable from "../components/CustomTable/CustomTable";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import classes from "./InstructorAssignTable.module.css";
 import api from "../services/apis/api";
-import { useAppSelector } from "../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { displayMessage } from "../store/messageSlice/message";
 
 interface InstructorData {
   _id: string;
@@ -34,10 +35,10 @@ const InstructorAssignTable: React.FC<InstructorAssignTableProps> = ({
   refreshInstructors,
   onFinishSelecting,
 }) => {
+  const dispatch = useAppDispatch();
   const [selectedRows, setSelectedRows] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isAddingInstructor, setIsAddingInstructor] = useState(false);
-  const [messageApi, contextHolder] = message.useMessage();
   const auth = useAppSelector((state) => state.auth);
   const columns: ColumnsType<InstructorData> = [
     {
@@ -82,22 +83,26 @@ const InstructorAssignTable: React.FC<InstructorAssignTableProps> = ({
               { instructorId },
               { headers: { Authorization: `Bearer ${auth.token}` } }
             );
-            messageApi.open({
-              type: "success",
-              content: response.data.message,
-              duration: 5,
-            });
+            dispatch(
+              displayMessage({
+                type: "success",
+                context: response.data.message,
+                duration: 5,
+              })
+            );
           })
         );
         refreshInstructors();
       } catch (err: any) {
-        messageApi.open({
-          type: "error",
-          duration: 7,
-          content: err.response.data.message
-            ? err.response.data.message
-            : "Something went wrong while trying to add instructors",
-        });
+        dispatch(
+          displayMessage({
+            type: "error",
+            duration: 7,
+            context: err.response.data.message
+              ? err.response.data.message
+              : "Something went wrong while trying to add instructors",
+          })
+        );
       }
       setIsAddingInstructor(false);
     } else {
@@ -119,7 +124,6 @@ const InstructorAssignTable: React.FC<InstructorAssignTableProps> = ({
 
   return (
     <>
-      {contextHolder}
       <Modal
         bodyStyle={{
           maxHeight: "80vh",
